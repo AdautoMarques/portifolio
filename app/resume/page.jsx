@@ -63,14 +63,80 @@ const education = [
   }
 ]
 
+
 const skills = {
-  title: 'Minhas Habilidades'
+  title: 'Minhas Habilidades',
+  description: `Tenho sólidas habilidades em frontend, incluindo domínio de HTML, CSS, JavaScript e frameworks como React.js, além de experiência em UX/UI, adaptação a novas tecnologias, 
+  boas práticas de desenvolvimento, colaboração eficaz, foco em performance e resolução de problemas técnicos.`,
+  skillsList: [
+    {
+      icon: <FaHtml5 />,
+      name: 'html 5'
+    },
+    {
+      icon: <FaCss3 />,
+      name: 'css 3'
+    },
+    {
+      icon: <FaJs />,
+      name: 'javascript'
+    },
+    {
+      icon: <FaReact />,
+      name: 'react'
+    },
+    {
+      icon: <FaCss3 />,
+      name: 'css 3'
+    },
+    {
+      icon: <SiNextdotjs />,
+      name: 'next.js'
+    },
+    {
+      icon: <SiTailwindcss />,
+      name: 'tailwindcss'
+    },
+    {
+      icon: <FaNodeJs />,
+      name: 'node.js'
+    },
+    {
+      icon: <FaFigma />,
+      name: 'figma'
+    },
+
+  ]
 }
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { ScrollArea } from '@radix-ui/react-scroll-area'
+import { motion } from 'framer-motion'
+
 
 
 const Resume = () => {
   return ( 
-    <div>Resumo</div>
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1, transition: {delay: 2.4, duration: 0.4, ease: 'easeIn'}}}
+      className='min-h-[80vh] flex items-center justify-center py-12 xl:py-0'
+    >
+      <div className='container mx-auto'>
+        <Tabs className='flex flex-col xl:flex-row gap-[60px]' defaultValue='Sobre'>
+          <TabsList className='flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6'>
+            <TabsTrigger value='educacao'>Educação</TabsTrigger>
+            <TabsTrigger value='sobre'>Sobre</TabsTrigger>
+            <TabsTrigger value='habilidades'>Habilidades</TabsTrigger>
+          </TabsList>
+
+          <div className='min-h-[70vh] w-full'>
+            <TabsContent value='educacao'>Educação</TabsContent>
+          </div>
+        </Tabs>
+      </div>
+    </motion.div>
    );
 }
  
