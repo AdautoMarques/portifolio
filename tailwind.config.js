@@ -29,7 +29,8 @@ module.exports = {
         DEFAULT: '#00ff99',
         hover: '#00e187',
       },
-      white: '#ffffff'
+      white: '#ffffff',
+      black: '#00000'
     },
   },
   extend: {
