@@ -126,13 +126,47 @@ const Resume = () => {
       <div className='container mx-auto'>
         <Tabs className='flex flex-col xl:flex-row gap-[60px]' defaultValue='Sobre'>
           <TabsList className='flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6'>
-            <TabsTrigger value='educacao'>Educação</TabsTrigger>
-            <TabsTrigger value='sobre'>Sobre</TabsTrigger>
-            <TabsTrigger value='habilidades'>Habilidades</TabsTrigger>
+            <TabsTrigger value='educacao'>Formação</TabsTrigger>
+            <TabsTrigger value='about'>Sobre</TabsTrigger>
+            <TabsTrigger value='skills'>Habilidades</TabsTrigger>
           </TabsList>
 
           <div className='min-h-[70vh] w-full'>
-            <TabsContent value='educacao'>Educação</TabsContent>
+            <TabsContent value='educacao'>
+                  <div className='flex flex-col gap-[30px] text-center xl:text-left'>
+                    <h3 className='text-4xl font-bold'>
+                      {education[0].title}
+                    </h3>
+                    <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>
+                      {education[0].description}
+                    </p>
+                    <ScrollArea className='h-[400px]'>
+                      <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
+                        {education[0].items.map((item, index) => {
+                          return(
+                            <li className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1'>
+                              <h3 className='text-xl max-w-[260px] min-h-[60px] text-center lg:text-left'>{item.degree}</h3>
+                              <div className='flex items-center gap-3'>
+                                <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
+                                <p className='text-white/60'>{item.institution}</p>
+                              </div>
+                            </li>
+                          )
+                        })}
+                            
+                      </ul>
+                    </ScrollArea>
+                </div>
+                
+      
+              
+              
+            </TabsContent>
+
+
+
+            <TabsContent value='skills'>Habilidades</TabsContent>
+            <TabsContent value='about'>Sobre</TabsContent>
           </div>
         </Tabs>
       </div>
