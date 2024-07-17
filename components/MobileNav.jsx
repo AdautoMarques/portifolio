@@ -22,7 +22,7 @@ const links = [
   },
 
   {
-    name: 'Tecnologias',
+    name: 'Trabalhos',
     path: '/work',
   },
 
